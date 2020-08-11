@@ -122,9 +122,12 @@ if __name__ == '__main__':
 				print(entry.out())
 		print("data output complete.")
 	elif (user == 2):
-		print("generating graphs...")
-		for category in data:
-			plt.plot([i.value for i in data[category]], [i.start for i in data[category]], 'ro')
-			plt.show()
-			input("press any key to continue")
+		print("which data category would you like to view?")
+		for i in range(len(data)):
+			print(str(i) + ": " + list(data.keys())[i])
+		
+		dataChoice = int(input("enter your choice: "))
+		plt.plot([i.value for i in data[list(data.keys())[dataChoice]]], [i.start for i in data[list(data.keys())[dataChoice]]], 'ro')
+		plt.show()
+		plt.close('all')
 	print("program complete.")
